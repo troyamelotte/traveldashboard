@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Plan</title>
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <a href="/logout">Logout</a>
+    <h3>Add a trip</h3>
+    <form action="/travels/new" method="post">
+      {% csrf_token %}
+      Destination: <input type="text" name="destination" value="">
+      Description: <textarea name="desc" rows="8" cols="40"></textarea>
+      Travel Date From: <input type="date" name="datefrom" value="">
+      Travel Date To: <input type="date" name="dateto" value="">
+      <input type="submit" value='Add'>
+    </form>
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {%endfor%}
+  </body>
+</html>
